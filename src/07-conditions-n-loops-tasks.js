@@ -488,11 +488,11 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-  for (let i = 0; i < 3; i += 1) {
-    if (position[i].every((item) => item === 'X')) return 'X';
-    if (position[i].every((item) => item === '0')) return '0';
+  for (let i = 0; i < position.length; i += 1) {
     if (position.every((item) => item[i] === 'X')) return 'X';
     if (position.every((item) => item[i] === '0')) return '0';
+    if (position[i].every((item) => item === 'X') && position[i].length === 3) return 'X';
+    if (position[i].every((item) => item === '0') && position[i].length === 3) return '0';
   }
   if (position[0][0] === 'X' && position[1][1] === 'X' && position[2][2] === 'X') return 'X';
   if (position[2][0] === 'X' && position[1][1] === 'X' && position[0][2] === 'X') return 'X';
